@@ -1,5 +1,10 @@
-.PHONY: build up in down destroy
+.PHONY: lint build up in down destroy
 
+# App
+lint:
+	golangci-lint run ./... --timeout=5m
+
+# Docker
 build:
 	docker compose up -d --build
 
