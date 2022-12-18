@@ -1,6 +1,9 @@
-.PHONY: lint build up in down destroy
+.PHONY: gotest lint build up in down destroy
 
 # App
+gotest:
+	go test ./...
+
 lint:
 	golangci-lint run ./... --timeout=5m
 
