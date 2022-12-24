@@ -9,4 +9,4 @@ RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/i
 # JSTをローカルタイムに
 RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-WORKDIR /go/src/
+WORKDIR /go/src/github.com/shimabox/example-s3-to-lambda-go

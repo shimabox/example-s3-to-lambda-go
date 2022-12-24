@@ -6,4 +6,4 @@ services:
       dockerfile: build/go/Dockerfile
     tty: true
     volumes:
-      - .:/go/src
+      - .:/go/src/github.com/shimabox/example-s3-to-lambda-go:cache
