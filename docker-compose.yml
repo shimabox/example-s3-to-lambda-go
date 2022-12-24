@@ -3,7 +3,7 @@ services:
   go:
     build:
       context: .
-      dockerfile: ./build/Dockerfile
+      dockerfile: build/go/Dockerfile
     tty: true
     volumes:
       - .:/go/src
