@@ -1,6 +1,15 @@
-.PHONY: gotest lint lint\:fix build up in down destroy
+.PHONY: gobuild gotest lint lint\:fix build up in down destroy
 
 # App
+gobuild:
+	mkdir -p dist
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+		go build \
+			-ldflags '-w -s' \
+			-o dist/greeting_handler cmd/app/greeting/main.go
+	zip -rj ./dist/greeting_handler ./dist/greeting_handler
+	rm ./dist/greeting_handler
+
 gotest:
 	go test ./...
 

@@ -1,6 +1,7 @@
 FROM golang:1.19.4
 
 RUN apt-get update
+RUN apt-get install -y zip
 
 # install golangci-lint.
 # binary will be $(go env GOPATH)/bin/golangci-lint
