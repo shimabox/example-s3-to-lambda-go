@@ -1,4 +1,4 @@
-.PHONY: gotest lint build up in down destroy
+.PHONY: gotest lint lint\:fix build up in down destroy
 
 # App
 gotest:
@@ -6,6 +6,8 @@ gotest:
 
 lint:
 	golangci-lint run ./... --timeout=5m
+lint\:fix:
+	golangci-lint run ./... --fix
 
 # Docker
 build:
