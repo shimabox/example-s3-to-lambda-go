@@ -26,7 +26,7 @@ cl:
 # update lambda
 ul:
 	docker compose exec go make gobuild
-	docker compose exec localstack bash scripts/lambda/update_function.sh
+	docker compose exec localstack bash scripts/update_lambda.sh
 
 # Docker
 build:
