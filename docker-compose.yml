@@ -16,6 +16,7 @@ services:
       - PERSISTENCE=1 # Localstack PROじゃないとそんなに意味ない
       - DOCKER_SOCK=/var/run/docker.sock # localのDockerを立ち上げてイベント処理を実行する
       - DEBUG=1 # 1にするとdockerでlogが確認できる
+      - HOSTNAME_EXTERNAL=localstack # Dockerコンテナ内ではlocalstackでやり取りする
       # app
       - DIST_DIR=/opt/code/localstack/dist
       - SCRIPT_DIR=/opt/code/localstack/scripts

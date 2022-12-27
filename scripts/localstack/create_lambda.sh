@@ -11,3 +11,4 @@ bash "$SCRIPT_DIR"/s3/add_notification_event.sh
 #############################
 bash "$SCRIPT_DIR"/lambda/delete_function.sh
 bash "$SCRIPT_DIR"/lambda/create_function.sh
+bash "$SCRIPT_DIR"/lambda/update_function_configuration.sh

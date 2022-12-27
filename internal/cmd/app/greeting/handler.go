@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"io"
 	"log"
+	"os"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/aws"
@@ -21,7 +22,9 @@ func Handler(_ context.Context, event events.S3Event) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	s3Ses := s3.New(ses, &aws.Config{})
+
+	config := getConfig()
+	s3Ses := s3.New(ses, &config)
 
 	record := event.Records[0]
 	s3Entity := record.S3
@@ -47,6 +50,16 @@ func Handler(_ context.Context, event events.S3Event) {
 	}
 
 	myEvent.SayHello()
+}
+
+func getConfig() aws.Config {
+	c := aws.Config{}
+	if os.Getenv("IS_LOCAL") == "true" {
+		c.Endpoint = aws.String("http://localstack:4566")
+		c.S3ForcePathStyle = aws.Bool(true)
+	}
+
+	return c
 }
 
 func read(o *s3.GetObjectOutput) ([]byte, error) {
