@@ -1,5 +1,5 @@
 .PHONY: gobuild gotest lint lint\:fix cl ul \
-		build up in in\:localstack stop down destroy rebuild
+		build up restart in in\:localstack stop down destroy rebuild
 
 # App
 gobuild:
@@ -34,6 +34,12 @@ build:
 
 up:
 	docker compose up -d
+
+restart:
+	$(MAKE) stop
+	$(MAKE) up
+	@sleep 15 # s3が反映されるのを待つ
+	$(MAKE) cl
 
 in:
 	docker compose exec go bash
