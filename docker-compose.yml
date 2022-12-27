@@ -7,3 +7,31 @@ services:
     tty: true
     volumes:
       - .:/go/src/github.com/shimabox/example-s3-to-lambda-go:cache
+  localstack:
+    image: localstack/localstack:1.3.1
+    ports:
+      - '4566:4566' # LocalStack Gateway
+    environment:
+      # localstack
+      - PERSISTENCE=1 # Localstack PROじゃないとそんなに意味ない
+      - DOCKER_SOCK=/var/run/docker.sock # localのDockerを立ち上げてイベント処理を実行する
+      - DEBUG=1 # 1にするとdockerでlogが確認できる
+      # app
+      - DIST_DIR=/opt/code/localstack/dist
+      - SCRIPT_DIR=/opt/code/localstack/scripts
+      - ENDPOINT_URL=http://localhost:4566
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - AWS_DEFAULT_REGION=ap-northeast-1
+      - S3_LAMBDA_STORAGE_BUCKET=local-lambda-storage-bucket
+      - S3_INPUT_BUCKET=local-input-bucket
+      - LAMBDA_FUNC_NAME=example-s3-to-lambda-go
+    volumes:
+      - localstack-volume:/var/lib/localstack # Localstack PROじゃないとそんなに意味ない
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./build/localstack:/docker-entrypoint-initaws.d
+      - ./dist:/opt/code/localstack/dist
+      - ./scripts/localstack:/opt/code/localstack/scripts
+
+volumes:
+  localstack-volume:
