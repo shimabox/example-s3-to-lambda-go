@@ -1,0 +1,8 @@
+{
+  "LambdaFunctionConfigurations": [
+    {
+      "LambdaFunctionArn": "arn:aws:lambda:ap-northeast-1:000000000000:function:example-s3-to-lambda-go",
+      "Events": ["s3:ObjectCreated:Put"]
+    }
+  ]
+}
