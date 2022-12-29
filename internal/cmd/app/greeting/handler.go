@@ -55,8 +55,9 @@ func Handler(_ context.Context, event events.S3Event) {
 func getConfig() aws.Config {
 	c := aws.Config{}
 	if os.Getenv("IS_LOCAL") == "true" {
-		c.Endpoint = aws.String("http://localstack:4566")
+		c.Endpoint = aws.String(os.Getenv("LOCALSTACK_URL"))
 		c.S3ForcePathStyle = aws.Bool(true)
+		c.Region = aws.String(os.Getenv("AWS_DEFAULT_REGION"))
 	}
 
 	return c
