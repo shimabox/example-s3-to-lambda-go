@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/google/go-cmp/cmp"
 
-	"shimabox/example-s3-to-lambda-go/internal/cmd/app/greeting"
+	"shimabox/example-s3-to-lambda-go/internal/cmd/greeting"
 	"shimabox/example-s3-to-lambda-go/testhelper"
 )
 
