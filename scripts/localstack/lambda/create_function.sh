@@ -7,9 +7,9 @@ if [ $(exists_lambda "$LAMBDA_FUNC_NAME") -eq 0 ]; then
         --endpoint-url="$ENDPOINT_URL" \
         --function-name "$LAMBDA_FUNC_NAME" \
         --role arn:aws:iam::000000000000:role/dummy-lambda-role \
-        --handler greeting_handler \
+        --handler "$PACKAGE_NAME" \
         --runtime go1.x \
-        --code S3Bucket="$S3_LAMBDA_STORAGE_BUCKET",S3Key=greeting_handler.zip \
+        --code S3Bucket="$S3_LAMBDA_STORAGE_BUCKET",S3Key="$PACKAGE_NAME".zip \
         --timeout 15 \
         --memory-size 512 \
         --package-type Zip

@@ -7,9 +7,9 @@ gobuild:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
 		go build \
 			-ldflags '-w -s' \
-			-o dist/greeting_handler cmd/app/greeting/main.go
-	zip -rj ./dist/greeting_handler ./dist/greeting_handler
-	rm ./dist/greeting_handler
+			-o dist/greeting cmd/app/greeting/main.go
+	zip -rj ./dist/greeting ./dist/greeting
+	rm ./dist/greeting
 
 gotest:
 	go test ./...
