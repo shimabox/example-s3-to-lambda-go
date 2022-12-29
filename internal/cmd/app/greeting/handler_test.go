@@ -5,24 +5,21 @@ import (
 	"testing"
 
 	"github.com/aws/aws-lambda-go/events"
+	"github.com/google/go-cmp/cmp"
 
 	"shimabox/example-s3-to-lambda-go/internal/cmd/app/greeting"
+	"shimabox/example-s3-to-lambda-go/testhelper"
 )
 
-func Test_Handler(t *testing.T) {
-	type args struct {
-		in0   context.Context
-		event events.S3Event
+func Test_Handler_イベント対象のレコードが存在しない場合_何も出力されない(t *testing.T) {
+	f := func() {
+		greeting.Handler(context.Background(), events.S3Event{})
 	}
-	tests := []struct {
-		name string
-		args args
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			greeting.Handler(tt.args.in0, tt.args.event)
-		})
+
+	got := testhelper.ExtractStdout(t, f)
+	want := ""
+
+	if diff := cmp.Diff(want, got); diff != "" {
+		t.Errorf("Handler is mismatch (-want +got):\n%s", diff)
 	}
 }
