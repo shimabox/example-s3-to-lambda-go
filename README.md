@@ -48,7 +48,7 @@
 ```shell
 git clone https://github.com/shimabox/example-s3-to-lambda-go.git
 cd example-s3-to-lambda-go
-cp .evn.example .env
+cp .env.example .env
 ```
 
 ### build
