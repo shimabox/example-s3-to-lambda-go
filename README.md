@@ -17,7 +17,7 @@
 
 ## リソース
 
-名前などは環境変数(`.env`)で定義
+※ 名前などは環境変数(`.env`)で定義
 
 ### LocalStack
 
@@ -68,11 +68,17 @@ make alltest
 make featuretest
 
 # unit test
-make gotest 
+make gotest
 ```
 
 ## Command
 
+- Container up
+  - `make up`
+- Container down
+  - `make down`
+- Container restart
+  - `make restart`
 - Update lambda.
   - `make ul # update lambda`
 - Check lambda operation.
