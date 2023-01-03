@@ -9,7 +9,8 @@ if [ $(exists_lambda "$LAMBDA_FUNC_NAME") -eq 1 ]; then
         --environment "Variables={ \
             IS_LOCAL=$IS_LOCAL, \
             LOCALSTACK_URL=$LOCALSTACK_URL, \
-            AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+            AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION, \
+            S3_INPUT_BUCKET=$S3_INPUT_BUCKET \
           }"
 
     echo "Done lambda update-function-configuration $LAMBDA_FUNC_NAME."

@@ -3,9 +3,13 @@ package main
 import (
 	"github.com/aws/aws-lambda-go/lambda"
 
-	"shimabox/example-s3-to-lambda-go/internal/cmd/greeting"
+	"shimabox/example-s3-to-lambda-go/app"
 )
 
 func main() {
-	lambda.Start(greeting.Handler)
+	registry := app.NewRegistry()
+	greetingRepository := registry.NewGreetingRepository()
+	greetingHandler := registry.NewGreetingHandler(greetingRepository)
+
+	lambda.Start(greetingHandler.Handler)
 }
