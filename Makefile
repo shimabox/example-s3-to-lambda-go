@@ -1,4 +1,4 @@
-.PHONY: gobuild gotest gotest\:feature featuretest lint lint\:fix cl ul \
+.PHONY: gobuild gotest gotest\:feature gotest\:all featuretest alltest lint lint\:fix cl ul \
 		build up restart in in\:localstack stop down destroy rebuild
 
 # App
@@ -17,9 +17,16 @@ gotest:
 gotest\:feature:
 	go test ./acceptance/...
 
+gotest\:all:
+	go test ./...
+
 featuretest:
 	docker compose exec localstack bash scripts/helper/upload.sh
 	docker compose exec go make gotest:feature
+
+alltest:
+	docker compose exec localstack bash scripts/helper/upload.sh
+	docker compose exec go make gotest:all
 
 lint:
 	golangci-lint run ./... --timeout=5m
