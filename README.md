@@ -60,7 +60,7 @@ make cl # create lambda.
 
 ### test
 
-```
+```shell
 # all test
 make alltest
 
@@ -68,7 +68,17 @@ make alltest
 make featuretest
 
 # unit test
+docker compose exec go make gotest
+// or locally.
 make gotest
+```
+
+### Lint
+
+```shell
+docker compose exec go make lint
+// or locally.
+make lint
 ```
 
 ## Command
