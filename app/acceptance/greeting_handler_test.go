@@ -8,7 +8,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 
 	"shimabox/example-s3-to-lambda-go/app/adapter"
-	"shimabox/example-s3-to-lambda-go/testhelper"
+	"shimabox/example-s3-to-lambda-go/app/testhelper"
 )
 
 func Test_Handler_挨拶が出力される(t *testing.T) {
