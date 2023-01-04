@@ -7,8 +7,8 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 
 	"shimabox/example-s3-to-lambda-go/app/adapter/domain/repository"
+	"shimabox/example-s3-to-lambda-go/app/adapter/external"
 	"shimabox/example-s3-to-lambda-go/app/adapter/usecase"
-	"shimabox/example-s3-to-lambda-go/app/external"
 )
 
 type GreetingHandler interface {

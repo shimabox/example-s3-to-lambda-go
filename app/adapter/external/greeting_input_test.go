@@ -7,7 +7,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 
 	"shimabox/example-s3-to-lambda-go/app/adapter/domain/model"
-	"shimabox/example-s3-to-lambda-go/app/external"
+	"shimabox/example-s3-to-lambda-go/app/adapter/external"
 )
 
 func Test_EventToGreetingEventList_イベントが存在しないとき初期値のイベントリストモデルが返る(t *testing.T) {
