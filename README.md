@@ -73,13 +73,23 @@ docker compose exec go make gotest
 make gotest
 ```
 
-### Lint
+### lint
 
 ```shell
 docker compose exec go make lint
 // or locally.
 make lint
 ```
+
+### lambda build
+
+```shell
+docker compose exec go make gobuild
+// or locally.
+make gobuild
+```
+
+- Output to `dist/greeting.zip`
 
 ## Command
 
