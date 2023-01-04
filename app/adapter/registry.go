@@ -1,11 +1,11 @@
-package app
+package adapter
 
 import (
 	"os"
 
-	repositoryInterface "shimabox/example-s3-to-lambda-go/app/domain/repository"
+	repositoryInterface "shimabox/example-s3-to-lambda-go/app/adapter/domain/repository"
+	"shimabox/example-s3-to-lambda-go/app/adapter/handler"
 	"shimabox/example-s3-to-lambda-go/app/gateway/storage"
-	"shimabox/example-s3-to-lambda-go/app/handler"
 	"shimabox/example-s3-to-lambda-go/app/infra/repository"
 )
 
