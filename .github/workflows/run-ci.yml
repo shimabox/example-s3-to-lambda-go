@@ -8,11 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: App Settings
+        run: cp .env.example .env
+
       - name: Docker Compose Build and Up
         run: docker compose up -d --build
-
-      - name: App Settings
-        run: docker compose exec go cp .env.example .env
 
       - name: Lint
         run: docker compose exec go make lint
