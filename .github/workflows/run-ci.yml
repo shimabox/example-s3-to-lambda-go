@@ -17,6 +17,10 @@ jobs:
       - name: Lint
         run: docker compose exec go make lint
 
+      - name: Unit Test
+        run: |
+          docker compose exec go make gotest
+
       - name: Create Lambda
         run: |
           docker compose exec go make gobuild
