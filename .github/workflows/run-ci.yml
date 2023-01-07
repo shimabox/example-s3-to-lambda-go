@@ -1,0 +1,33 @@
+name: example-s3-to-lambda-go-ci
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: App Settings
+        run: cp .env.example .env
+
+      - name: Docker Compose Build and Up
+        run: docker compose up -d --build
+
+      - name: Lint
+        run: docker compose exec go make lint
+
+      - name: Create Lambda
+        run: |
+          docker compose exec go make gobuild
+          docker compose exec localstack bash scripts/create_lambda.sh
+
+      - name: Test
+        run: |
+          docker compose exec localstack bash scripts/helper/upload.sh
+          docker compose exec localstack bash -c "sleep 15" # Wait for reflection in log.
+          docker compose exec go make gotest:all
+
+      - name: Check Lambda
+        run: |
+          docker compose exec localstack bash scripts/operation_check.sh
