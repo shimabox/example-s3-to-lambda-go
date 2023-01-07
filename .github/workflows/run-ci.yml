@@ -17,10 +17,6 @@ jobs:
       - name: Lint
         run: docker compose exec go make lint
 
-      - name: Unit Test
-        run: |
-          docker compose exec go make gotest
-
       - name: Create Lambda
         run: |
           docker compose exec go make gobuild
@@ -31,6 +27,4 @@ jobs:
           docker compose exec localstack bash scripts/operation_check.sh
 
       - name: Test
-        run: |
-          docker compose exec localstack bash scripts/helper/upload.sh
-          docker compose exec go make gotest:all
+        run: docker compose exec go make gotest:all
