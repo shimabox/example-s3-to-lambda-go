@@ -12,13 +12,13 @@ gobuild:
 	rm ./dist/greeting
 
 gotest:
-	go test ./app/...
+	go test ./app/... -count=1
 
 gotest\:feature:
-	go test ./acceptance/...
+	go test ./acceptance/... -count=1
 
 gotest\:all:
-	go test ./...
+	go test ./... -count=1
 
 featuretest:
 	docker compose exec localstack bash scripts/helper/upload.sh
