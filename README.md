@@ -112,5 +112,7 @@ make gobuild
 - [x] localstackでの動作確認
 - [ ] SAMでデプロイ
 - [ ] GitHub Actions
+  - [x] CI追加
+  - [ ] デプロイ
 - [ ] テスト補完
   - infra、gateway
