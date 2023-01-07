@@ -29,7 +29,7 @@ jobs:
       - name: Check Lambda
         run: |
           docker compose exec localstack bash scripts/helper/upload.sh
-          sleep 15
+          sleep 10
           docker compose exec localstack bash scripts/helper/get_log.sh
 
       - name: Test
