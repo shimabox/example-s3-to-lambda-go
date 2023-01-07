@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_GROUP=/aws/lambda/example-s3-to-lambda-go
+LOG_GROUP=/aws/lambda/"$LOG_GROUP_NAME"
 LOG_STREAMS=$(aws logs describe-log-streams \
   --endpoint-url="$ENDPOINT_URL" \
   --log-group-name "$LOG_GROUP" \
