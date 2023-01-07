@@ -24,7 +24,10 @@ jobs:
 
       - name: Check Lambda
         run: |
-          docker compose exec localstack bash scripts/operation_check.sh
+          docker compose exec localstack bash scripts/operation_check_ci.sh
 
       - name: Test
-        run: docker compose exec go make gotest:all
+        run: |
+          docker compose exec localstack bash scripts/helper/upload.sh
+          docker compose exec localstack bash -c "sleep 15" # Wait for reflection in log.
+          docker compose exec go make gotest:all
