@@ -3,8 +3,8 @@ package external
 import (
 	"github.com/aws/aws-lambda-go/events"
 
-	"shimabox/example-s3-to-lambda-go/app/domain/model"
-	"shimabox/example-s3-to-lambda-go/app/usecase"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/model"
+	"shimabox/example-s3-to-lambda-go/app/adapter/usecase"
 )
 
 type greetingInput struct {

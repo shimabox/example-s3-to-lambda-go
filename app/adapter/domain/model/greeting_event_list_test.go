@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"shimabox/example-s3-to-lambda-go/app/domain/model"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/model"
 )
 
 func Test_Exists_イベントが存在しなければfalse(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"shimabox/example-s3-to-lambda-go/app/domain/model"
-	"shimabox/example-s3-to-lambda-go/app/domain/repository"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/model"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/repository"
 	"shimabox/example-s3-to-lambda-go/app/gateway/storage"
 )
 

@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"shimabox/example-s3-to-lambda-go/app/domain/model"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/model"
 )
 
 type GreetingRepository interface {

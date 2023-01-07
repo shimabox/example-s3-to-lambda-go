@@ -7,12 +7,12 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/google/go-cmp/cmp"
 
-	"shimabox/example-s3-to-lambda-go/app"
-	"shimabox/example-s3-to-lambda-go/testhelper"
+	"shimabox/example-s3-to-lambda-go/app/adapter"
+	"shimabox/example-s3-to-lambda-go/app/testhelper"
 )
 
 func Test_Handler_挨拶が出力される(t *testing.T) {
-	registry := app.NewRegistry()
+	registry := adapter.NewRegistry()
 	greetingRepository := registry.NewGreetingRepository()
 	greetingHandler := registry.NewGreetingHandler(greetingRepository)
 

@@ -12,10 +12,12 @@ gobuild:
 	rm ./dist/greeting
 
 gotest:
-	go test ./app/... -count=1
+	go test ./app/adapter/... -count=1
+	go test ./app/gateway/... -count=1
+	go test ./app/infra/... -count=1
 
 gotest\:feature:
-	go test ./acceptance/... -count=1
+	go test ./app/acceptance/... -count=1
 
 gotest\:all:
 	go test ./... -count=1

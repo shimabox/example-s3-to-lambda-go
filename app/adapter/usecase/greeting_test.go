@@ -6,10 +6,10 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"shimabox/example-s3-to-lambda-go/app/domain/errs"
-	"shimabox/example-s3-to-lambda-go/app/domain/model"
-	"shimabox/example-s3-to-lambda-go/app/usecase"
-	"shimabox/example-s3-to-lambda-go/testhelper"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/errs"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/model"
+	"shimabox/example-s3-to-lambda-go/app/adapter/usecase"
+	"shimabox/example-s3-to-lambda-go/app/testhelper"
 )
 
 func Test_Handle_挨拶がなければerror_EventNotFoundが返る(t *testing.T) {

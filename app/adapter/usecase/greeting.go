@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"shimabox/example-s3-to-lambda-go/app/domain/errs"
-	"shimabox/example-s3-to-lambda-go/app/domain/repository"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/errs"
+	"shimabox/example-s3-to-lambda-go/app/adapter/domain/repository"
 )
 
 type GreetingUsecase interface {
